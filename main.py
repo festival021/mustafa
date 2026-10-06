@@ -6045,7 +6045,7 @@ async def subscription_single(
             used_names.add(name)
             lines.append(vless_link_for_link({**link, "label": name}, uuid, host))
     content = base64.b64encode("\n".join(lines).encode()).decode()
-    profile_title = stats_remark
+    profile_title = str(link.get("label") or "VodiWalker Subscription")
     headers = subscription_metadata_headers(
         used,
         limit,
